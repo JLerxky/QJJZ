@@ -20,7 +20,7 @@ public class Timer {
 //        System.out.println(new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date())+" >>fixedRate执行....");
 //    }
 
-    @Scheduled(cron="0 43 * * * ?")
+    @Scheduled(cron="30 * * * * ?")
     public void cronJob(){
         System.out.println(new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date())+" >>cron执行....");
     }
