@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:sqlserver://localhost;database=QJJZ</property>
+        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <mapping class="com.jler.qjjz.entity.AccountEntity"/>
+        <mapping class="com.jler.qjjz.entity.BudgetEntity"/>
+        <mapping class="com.jler.qjjz.entity.CycleEntity"/>
+        <mapping class="com.jler.qjjz.entity.DetailEntity"/>
+        <mapping class="com.jler.qjjz.entity.DetailTaskEntity"/>
+        <mapping class="com.jler.qjjz.entity.DetailTypeEntity"/>
+        <mapping class="com.jler.qjjz.entity.MessageEntity"/>
+        <mapping class="com.jler.qjjz.entity.MessageTaskEntity"/>
+        <mapping class="com.jler.qjjz.entity.RelationshipEntity"/>
+        <mapping class="com.jler.qjjz.entity.TransferEntity"/>
+        <mapping class="com.jler.qjjz.entity.TransferTaskEntity"/>
+        <mapping class="com.jler.qjjz.entity.UsersEntity"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

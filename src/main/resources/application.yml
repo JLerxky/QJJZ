@@ -1,0 +1,28 @@
+server:
+  port: 9021
+  context-path: /QJJZ
+  error:
+    path: /error
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost;DatebaseName=QJJZ
+    username: sa
+    password: htwater
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+# Specify the DBMS
+    database: sql_server
+# Show or not log for each sql query
+    show-sql: true
+    hibernate:
+# Hibernate ddl auto (create, create-drop, update)
+#      ddl-auto: update
+# Naming strategy
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+# stripped before adding them to the entity manager)
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2008Dialect
+        default_schema: dbo
+        default_catalog: QJJZ
