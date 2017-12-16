@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Arrays;
 
 @Entity
-@Table(name = "users", schema = "dbo", catalog = "QJJZ")
+@Table(name = "users")
 public class UsersEntity {
     private int id;
     private String uId;

@@ -3,7 +3,7 @@ package com.jler.qjjz.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "detailType", schema = "dbo", catalog = "QJJZ")
+@Table(name = "detailType")
 public class DetailTypeEntity {
     private int id;
     private Integer type;

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="QJJZ@localhost" uuid="5eca3a11-ceed-44e5-9c1a-ce1caee365fe">
-      <driver-ref>sqlserver.ms</driver-ref>
+    <data-source source="LOCAL" name="PostgreSQL - QJJZ@localhost" uuid="3214746b-3c65-4764-8c0e-31a013a743a2">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://localhost;database=QJJZ</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/QJJZ</jdbc-url>
       <driver-properties>
-        <property name="applicationName" value="DataGrip" />
+        <property name="ApplicationName" value="DataGrip" />
       </driver-properties>
     </data-source>
   </component>

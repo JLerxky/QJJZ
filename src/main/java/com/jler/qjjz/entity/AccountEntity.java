@@ -3,7 +3,7 @@ package com.jler.qjjz.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "account", schema = "dbo", catalog = "QJJZ")
+@Table(name = "account")
 public class AccountEntity {
     private int id;
     private Integer uId;

@@ -6,13 +6,18 @@ server:
 
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost;DatebaseName=QJJZ
-    username: sa
-    password: htwater
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#  mssql数据库
+#    url: jdbc:sqlserver://localhost;DatebaseName=QJJZ
+#    username: sa
+#    password: htwater
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#  pgsql数据库
+    url: jdbc:postgresql://localhost:5432/QJJZ
+    username: postgres
+    password: JLer
+    driver-class-name: org.postgresql.Driver
+
   jpa:
-# Specify the DBMS
-    database: sql_server
 # Show or not log for each sql query
     show-sql: true
     hibernate:
@@ -23,6 +28,7 @@ spring:
 # stripped before adding them to the entity manager)
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.SQLServer2008Dialect
-        default_schema: dbo
-        default_catalog: QJJZ
+#      mssql数据库方言
+#        dialect: org.hibernate.dialect.SQLServer2008Dialect
+#      pgsql数据库方言
+        dialect: org.hibernate.dialect.PostgreSQLDialect

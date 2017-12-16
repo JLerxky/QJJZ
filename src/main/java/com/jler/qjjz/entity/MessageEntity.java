@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "message", schema = "dbo", catalog = "QJJZ")
+@Table(name = "message")
 public class MessageEntity {
     private int id;
     private Integer uId;
