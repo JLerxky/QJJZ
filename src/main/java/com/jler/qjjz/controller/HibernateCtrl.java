@@ -2,6 +2,8 @@ package com.jler.qjjz.controller;
 
 import com.jler.qjjz.entity.UsersEntity;
 import com.jler.qjjz.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/hibernate")
 @EnableAutoConfiguration
 public class HibernateCtrl {
+    Logger logger = LoggerFactory.getLogger(HibernateCtrl.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -20,21 +23,9 @@ public class HibernateCtrl {
     @ResponseBody
     public UsersEntity getUserById(int id) {
         UsersEntity u = userRepository.findOne(id);
-        System.out.println("userRepository: " + userRepository);
-        System.out.println("id: " + id);
+        logger.info("userRepository: " + userRepository);
+        logger.info("id: " + id);
         return u;
     }
-
-    @RequestMapping("saveUser")
-    @ResponseBody
-    public void saveUser() {
-        UsersEntity u = new UsersEntity();
-        u.setuName("baby");
-        u.setId(2);
-        u.setuId("zpb");
-        u.setuPwd("4721");
-        userRepository.save(u);
-    }
-
 
 }

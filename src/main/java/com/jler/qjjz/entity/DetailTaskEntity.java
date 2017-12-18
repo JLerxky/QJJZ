@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "detailTask")
+@Table(name = "detail_task")
 public class DetailTaskEntity {
     private int id;
     private Integer accountId;

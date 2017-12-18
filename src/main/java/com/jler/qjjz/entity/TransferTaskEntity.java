@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "transferTask")
+@Table(name = "transfer_task")
 public class TransferTaskEntity {
     private int id;
     private Integer inAccount;

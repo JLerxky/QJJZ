@@ -13,6 +13,15 @@ public class UsersEntity {
     private byte[] faceImg;
     private Integer signInDay;
 
+    public UsersEntity() {
+
+    }
+
+    public UsersEntity(String uid, String upwd) {
+        this.uId = uid;
+        this.uPwd = upwd;
+    }
+
     @Id
     @Column(name = "id")
     public int getId() {

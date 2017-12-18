@@ -3,7 +3,7 @@ package com.jler.qjjz.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "messageTask")
+@Table(name = "message_task")
 public class MessageTaskEntity {
     private int id;
     private Integer uId;

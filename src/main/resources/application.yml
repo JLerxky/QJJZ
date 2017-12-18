@@ -3,6 +3,8 @@ server:
   context-path: /QJJZ
   error:
     path: /error
+  session:
+    timeout: 300
 
 spring:
   datasource:

@@ -97,7 +97,7 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "statement_date ")
+    @Column(name = "statement_date")
     public String getStatementDate() {
         return statementDate;
     }
@@ -107,7 +107,7 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "repayment_date ")
+    @Column(name = "repayment_date")
     public String getRepaymentDate() {
         return repaymentDate;
     }
