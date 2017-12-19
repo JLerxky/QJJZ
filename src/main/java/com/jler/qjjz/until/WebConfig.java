@@ -13,8 +13,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         InterceptorRegistration addInterceptor = registry.addInterceptor(new Interceptor());
 
         // 排除配置
-//        addInterceptor.excludePathPatterns("/error");
+        addInterceptor.excludePathPatterns("/404");
         addInterceptor.excludePathPatterns("/login**");
+        addInterceptor.excludePathPatterns("/joinIn");
 
         // 拦截配置
         addInterceptor.addPathPatterns("/**");

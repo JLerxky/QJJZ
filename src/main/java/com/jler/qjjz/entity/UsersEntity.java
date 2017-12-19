@@ -24,6 +24,8 @@ public class UsersEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="Users_id_seq")
+    @SequenceGenerator(name = "Users_id_seq",sequenceName="users_id_seq",initialValue=1000,allocationSize=1)
     public int getId() {
         return id;
     }

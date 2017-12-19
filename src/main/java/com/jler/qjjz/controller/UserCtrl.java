@@ -26,28 +26,41 @@ public class UserCtrl {
     public String login(Model model, HttpSession session) {
         if (session.getAttribute("uid") == null) {
             model.addAttribute("UsersEntity", new UsersEntity());
-            return "user/login";
+            return "login/login-1";
         } else {
             logger.info("------" + session.getAttribute("uid") + "已登录,返回之前页------");
             model.addAttribute("uid", session.getAttribute("uid"));
-            return "menu/ios-style-sliding-menu/index";
+            return "menu/menu-1";
         }
     }
 
-    @RequestMapping(value = "loginPost", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public String loginPost(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session) {
         boolean r = userService.checkPwd(usersEntity);
         model.addAttribute("Result", r);
         if (r) {
             model.addAttribute("uid", usersEntity.getuId());
             session.setAttribute("uid", usersEntity.getuId());
+            return "redirect:/";
+        }else{
+            model.addAttribute("result", "用户名或密码错误");
+            model.addAttribute("UsersEntity", new UsersEntity());
+            return "login/login-1";
         }
-        return "user/loginResult";
     }
 
-    @RequestMapping("saveUser")
-    @ResponseBody
-    public void saveUser() {
+    @RequestMapping(value = "joinIn", method = RequestMethod.POST)
+    public String joinIn(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session) {
+        UsersEntity u = userService.save(usersEntity);
+        if(u != null){
+            model.addAttribute("uid", usersEntity.getuId());
+            session.setAttribute("uid", usersEntity.getuId());
+            return "redirect:/";
+        }else{
+            model.addAttribute("result", "注册失败");
+            model.addAttribute("UsersEntity", new UsersEntity());
+            return "login/login-1";
+        }
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
@@ -57,6 +70,6 @@ public class UserCtrl {
         logger.info("------" + uid + "已退出,返回登录页------");
         model.addAttribute("uid", null);
         model.addAttribute("UsersEntity", new UsersEntity());
-        return "user/login";
+        return "login/login-1";
     }
 }

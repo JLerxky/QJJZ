@@ -1,4 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Oxygen:400,700);
+@font-face {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oxygen Regular'), local('Oxygen-Regular'), url(../font/Rzo.woff) format('woff');
+}
 
 /*
   Fonts
@@ -13,7 +18,7 @@
 */
 body {
     margin: 0;
-    background: #556270;
+    background: #59917C;
     color: #353d46;
     font: 18px/27px 'Oxygen', sans-serif;
 }
@@ -34,7 +39,7 @@ nav#slide-menu {
     display: block;
     float: left;
     width: 100%;
-    max-width: 284px;
+    max-width: 180px;
     height: 100%;
     -moz-transition: all 300ms;
     -webkit-transition: all 300ms;
@@ -70,7 +75,7 @@ nav#slide-menu > ul li:before {
     display: inline-block;
     text-decoration: inherit;
     width: 1em;
-    color: #59e9df;
+    color: #FFFFFF;
     margin-right: 12px;
     text-align: center;
     font-variant: normal;
@@ -132,7 +137,7 @@ div#content {
     box-sizing: border-box;
     -moz-box-shadow: -3px 0 6px #4a5562;
     -webkit-box-shadow: -3px 0 6px #4a5562;
-    box-shadow: -3px 0 6px #4a5562;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     -moz-transition: all 300ms;
     -webkit-transition: all 300ms;
     transition: all 300ms;
@@ -177,10 +182,10 @@ div#content div.menu-trigger:hover:before {
 }
 
 body.menu-active div#content {
-    left: 284px;
+    left: 180px;
     border-radius: 7px 0 0 7px;
 }
 
 body.menu-active div#content .menu-trigger {
-    left: 294px;
+    left: 190px;
 }

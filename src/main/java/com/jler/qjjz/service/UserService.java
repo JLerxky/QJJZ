@@ -23,8 +23,8 @@ public class UserService {
         }
     }
 
-    public void save(UsersEntity u) {
-        userRepository.save(u);
+    public UsersEntity save(UsersEntity u) {
+        return userRepository.save(u);
     }
 
     public UsersEntity findOne(int id) {

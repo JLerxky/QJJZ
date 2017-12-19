@@ -20,7 +20,11 @@ public interface UserRepository extends CrudRepository<UsersEntity, Integer> {
 
     UsersEntity findByUId(String uId);
 
+    @Override
     UsersEntity save(UsersEntity u);
+
+    @Override
+    UsersEntity findOne(Integer integer);
 
     @Query("select t from UsersEntity t where t.uName=:uName")
     UsersEntity findUserByName(@Param("uName") String uName);
