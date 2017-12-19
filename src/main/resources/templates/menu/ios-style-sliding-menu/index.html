@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8"></meta>
-	<title>轻简记账</title>
-	<link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}"></link>
+    <meta charset="UTF-8"></meta>
+    <title>轻简记账</title>
+    <link rel="stylesheet" href="../../../static/css/menu_style_1.css" th:href="@{../css/menu_style_1.css}"></link>
 </head>
 <body>
-  <!-- Navigation -->
+<!-- Navigation -->
 <nav id="slide-menu">
-	<ul>
-		<li class="timeline">Timeline</li>
-		<li class="events">Events</li>
-		<li class="calendar">Calendar</li>
-		<li class="sep settings">Settings</li>
-		<li class="logout"><a th:href="@{logout}">Logout</a></li>
-	</ul>
+    <ul>
+        <li class="timeline">Timeline</li>
+        <li class="events">Events</li>
+        <li class="calendar">Calendar</li>
+        <li class="sep settings">Settings</li>
+        <li class="logout"><a th:href="@{logout}">Logout</a></li>
+    </ul>
 </nav>
 <!-- Content panel -->
 <div id="content">
-	<div class="menu-trigger"></div>
-	<div class="user">
-		<p th:text="${uid}"></p>
-	</div>
-	<h1>iOS style sliding menu</h1>
-	<p>Here's an easy way to create an iOS style, side sliding menu.</p>
+    <div class="menu-trigger"></div>
+    <div class="user">
+        <p th:text="${uid}"></p>
+    </div>
+    <a th:href="@{../css/menu_style_1.css}">Content路径,默认访问static下的css文件夹</a>
 </div>
-  
-    <script  src="/static/js/index.js" th:sre="@{/js/index.js}"></script>
-
+<script src="..//js/index.js"></script>
 </body>
 </html>

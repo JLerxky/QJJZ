@@ -1,31 +1,29 @@
 package com.jler.qjjz.controller;
 
-import com.jler.qjjz.entity.UsersEntity;
-import com.jler.qjjz.repository.UserRepository;
+import com.jler.qjjz.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/hibernate")
+@RequestMapping
 @EnableAutoConfiguration
 public class HibernateCtrl {
     Logger logger = LoggerFactory.getLogger(HibernateCtrl.class);
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
-    @RequestMapping("getUserById")
-    @ResponseBody
-    public UsersEntity getUserById(int id) {
-        UsersEntity u = userRepository.findOne(id);
-        logger.info("userRepository: " + userRepository);
-        logger.info("id: " + id);
-        return u;
+    @RequestMapping(value = "/")
+    public String index(HttpSession session, Model model) {
+        model.addAttribute("uid", session.getAttribute("uid"));
+        return "menu/ios-style-sliding-menu/index";
     }
 
 }

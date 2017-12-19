@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DetailRepository extends CrudRepository<DetailEntity,Integer> {
+public interface DetailRepository extends CrudRepository<DetailEntity, Integer> {
 }

@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TransferTaskRepository extends CrudRepository<TransferTaskEntity,Integer>{
+public interface TransferTaskRepository extends CrudRepository<TransferTaskEntity, Integer> {
 }
