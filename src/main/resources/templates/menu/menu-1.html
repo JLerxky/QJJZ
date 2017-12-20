@@ -4,6 +4,7 @@
     <meta charset="UTF-8"></meta>
     <title>轻简记账</title>
     <link rel="stylesheet" href="../../static/css/menu-1.css" th:href="@{css/menu-1.css}"></link>
+    <link rel="stylesheet" href="../../static/css/box.css" th:href="@{css/box.css}"></link>
 </head>
 <body>
 <!-- Navigation -->
@@ -19,10 +20,16 @@
 <!-- Content panel -->
 <div id="content">
     <div class="menu-trigger"></div>
-    <div class="user">
-        <p th:text="${uid}"></p>
+    <div class="header" th:text="${uid}">
     </div>
-    <a th:href="@{css/menu-1.css}">Content路径,默认访问static下的css文件夹</a>
+    <div class="user" th:text="${uid}">
+    </div>
+    <div class="card card-1"></div>
+    <div class="card card-1"></div>
+    <div class="card card-1"></div>
+    <div class="card card-1"></div>
+    <div class="card card-1"></div>
+    <div class="card card-1"></div>
 </div>
 <script src="js/menu-1.js"></script>
 </body>

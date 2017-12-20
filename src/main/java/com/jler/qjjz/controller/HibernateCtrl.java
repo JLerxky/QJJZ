@@ -23,7 +23,7 @@ public class HibernateCtrl {
     @RequestMapping(value = "/")
     public String index(HttpSession session, Model model) {
         model.addAttribute("uid", session.getAttribute("uid"));
-        return "menu/menu-1";
+        return "index";
     }
 
 }
