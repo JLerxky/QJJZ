@@ -24,7 +24,7 @@ spring:
 #    show-sql: true
     hibernate:
 # Hibernate ddl auto (create, create-drop, update)
-      ddl-auto: create-drop
+#      ddl-auto: update
 # Naming strategy
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
 # stripped before adding them to the entity manager)
