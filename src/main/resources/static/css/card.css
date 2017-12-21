@@ -15,7 +15,7 @@ body{
 
 .content{
   display: table;
-  border-radius: 40px;
+  /*border-radius: 40px;*/
   width: 100%;
   background: antiquewhite;
   margin: 40px 0;
@@ -27,10 +27,9 @@ body{
 .header{
   background: indianred;
   width: 100%;
-  height: 5%;
-  max-height: 48px;
+  height: 48px;
   margin: 0;
-  border-radius: 0;
+  border-radius: 100px;
 }
 
 .card-1 {
@@ -59,4 +58,18 @@ body{
 
 .card-5 {
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.card.card-1.account {
+  width: 96%;
+  height: 150px;
+}
+
+.card.card-1.flow {
+  height: 640px;
+}
+
+.card.card-1.up {
+  position: absolute;
+  height: 320px;
 }

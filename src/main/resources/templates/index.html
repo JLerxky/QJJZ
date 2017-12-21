@@ -5,14 +5,15 @@
     <title>轻简记账</title>
     <link rel="stylesheet" th:href="@{css/card.css}"></link>
     <link rel="stylesheet" th:href="@{css/toggle.css}"></link>
+    <link rel="stylesheet" th:href="@{css/index.css}"></link>
     <script src="js/prefixfree.min.js"></script>
 </head>
 <body>
     <div class="card content">
-        <div class="card header">
-            <a href="#menu" id="toggle" class=""><span></span></a>
+        <header class="card header">
+            <a href="#menu" class="toggle" id="toggle_menu"><span></span></a>
 
-            <div id="menu">
+            <div class="menu setter">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -21,13 +22,21 @@
             </div>
 
             <p class="logo">轻简记账</p>
-        </div>
-        <div class="card card-1"></div>
-        <div class="card card-1"></div>
-        <div class="card card-1"></div>
-        <div class="card card-1"></div>
-        <div class="card card-1"></div>
-        <div class="card card-1"></div>
+
+            <a href="#menu" class="toggle" id="toggle_face">
+                <div class="face"></div>
+            </a>
+            <div class="menu user">
+                <ul>
+                    <li><a href="#home" th:text="${uid}"></a></li>
+                    <li><a href="#home">用户中心</a></li>
+                    <li><a th:href="@{logout}">退出</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="card card-1 account"></div>
+        <div class="card card-1 flow"></div>
+        <div class="card card-1 up"></div>
     </div>
 
     <script src="js/toggle.js"></script>

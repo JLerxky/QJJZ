@@ -1,4 +1,5 @@
-var theToggle = document.getElementById('toggle');
+var theToggle_menu = document.getElementById('toggle_menu');
+var theToggle_face = document.getElementById('toggle_face');
 
 // based on Todd Motto functions
 // https://toddmotto.com/labs/reusable-js/
@@ -36,7 +37,12 @@ function toggleClass(elem, className) {
     }
 }
 
-theToggle.onclick = function() {
-   toggleClass(this, 'on');
-   return false;
+theToggle_face.onclick = function() {
+    toggleClass(this, 'on');
+    return false;
+}
+
+theToggle_menu.onclick = function() {
+    toggleClass(this, 'on');
+    return false;
 }

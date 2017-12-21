@@ -1,0 +1,9 @@
+.face{
+    background-color: #ffffff;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
