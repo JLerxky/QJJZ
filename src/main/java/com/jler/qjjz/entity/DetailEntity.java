@@ -8,11 +8,11 @@ import java.sql.Date;
 public class DetailEntity {
     private int id;
     private Integer accountId;
-    private Integer type;
     private Float amount;
-    private Date date;
     private Integer categoryId;
+    private Date date;
     private String note;
+    private Integer type;
 
     @Id
     @Column(name = "id")
@@ -35,16 +35,6 @@ public class DetailEntity {
     }
 
     @Basic
-    @Column(name = "type")
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    @Basic
     @Column(name = "amount")
     public Float getAmount() {
         return amount;
@@ -52,16 +42,6 @@ public class DetailEntity {
 
     public void setAmount(Float amount) {
         this.amount = amount;
-    }
-
-    @Basic
-    @Column(name = "date")
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     @Basic
@@ -75,6 +55,16 @@ public class DetailEntity {
     }
 
     @Basic
+    @Column(name = "date")
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    @Basic
     @Column(name = "note")
     public String getNote() {
         return note;
@@ -82,6 +72,16 @@ public class DetailEntity {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    @Basic
+    @Column(name = "type")
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     @Override
@@ -93,22 +93,24 @@ public class DetailEntity {
 
         if (id != that.id) return false;
         if (accountId != null ? !accountId.equals(that.accountId) : that.accountId != null) return false;
-        if (type != null ? !type.equals(that.type) : that.type != null) return false;
         if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
         if (categoryId != null ? !categoryId.equals(that.categoryId) : that.categoryId != null) return false;
-        return note != null ? note.equals(that.note) : that.note == null;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (note != null ? !note.equals(that.note) : that.note != null) return false;
+        if (type != null ? !type.equals(that.type) : that.type != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);
-        result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (categoryId != null ? categoryId.hashCode() : 0);
+        result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (note != null ? note.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
     }
 }

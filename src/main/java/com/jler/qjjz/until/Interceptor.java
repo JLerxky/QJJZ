@@ -20,13 +20,13 @@ public class Interceptor implements HandlerInterceptor {
         //获取session
         HttpSession session = request.getSession(true);
         //判断用户ID是否存在，不存在就跳转到登录界面
-        if (session.getAttribute("uid") == null) {
+        if (session.getAttribute("uAcct") == null) {
             logger.info("-------用户未登录-------");
             response.sendRedirect(request.getContextPath() + "/login");
             return false;
         } else {
-            logger.info("------用户:" + session.getAttribute("uid") + "登录------");
-            session.setAttribute("uid", session.getAttribute("uid"));
+            logger.info("------用户:" + session.getAttribute("uAcct") + "登录------");
+            session.setAttribute("uAcct", session.getAttribute("uAcct"));
             return true;
         }
     }

@@ -1,5 +1,6 @@
 package com.jler.qjjz.controller;
 
+import com.jler.qjjz.service.AccountService;
 import com.jler.qjjz.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,16 +15,28 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping
 @EnableAutoConfiguration
-public class HibernateCtrl {
-    Logger logger = LoggerFactory.getLogger(HibernateCtrl.class);
+public class InitCtrl {
+    Logger logger = LoggerFactory.getLogger(InitCtrl.class);
 
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AccountService accountService;
+
     @RequestMapping(value = "/")
     public String index(HttpSession session, Model model) {
-        model.addAttribute("uid", session.getAttribute("uid"));
+        String uAcct = session.getAttribute("uAcct").toString();
+        model.addAttribute("uAcct", uAcct);
+        if(uAcct != null){
+            init(uAcct,model);
+        }
         return "index";
+    }
+
+    public void init(String uAcct,Model model){
+        Integer uid = userService.getuIdByuAcct(uAcct);
+        model.addAttribute("accounts",accountService.findAllByuId(uid));
     }
 
 }

@@ -11,14 +11,14 @@
     <div class="form">
         <h1 style="color: darkgoldenrod;">轻简记账</h1>
         <form class="register-form" th:action="@{joinIn}" th:object="${UsersEntity}" method="post">
-            <input type="text" placeholder="用户名" th:field="*{uId}"/>
+            <input type="text" placeholder="用户名" th:field="*{uAcct}"/>
             <input type="password" placeholder="输入密码" th:field="*{uPwd}"/>
             <input type="password" placeholder="重新输入密码" />
             <button>加入</button>
             <p class="message">已经有账号? <a href="#">登录</a></p>
         </form>
         <form class="login-form" th:action="@{login}" th:object="${UsersEntity}" method="post">
-            <input type="text" placeholder="用户名" th:field="*{uId}"/>
+            <input type="text" placeholder="用户名" th:field="*{uAcct}"/>
             <input type="password" placeholder="密码" th:field="*{uPwd}"/>
             <button>登录</button>
             <p class="result" th:text="${result}"></p>

@@ -7,7 +7,7 @@
 <body>
 <h1>Login</h1>
 <form action="#" th:action="@{loginPost}" th:object="${UsersEntity}" method="post">
-    <p>ID: <input type="text" th:field="*{uId}"/></p>
+    <p>ID: <input type="text" th:field="*{uAcct}"/></p>
     <p>密码: <input type="text" th:field="*{uPwd}"/></p>
     <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
 </form>

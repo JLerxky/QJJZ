@@ -70,6 +70,6 @@ body{
 }
 
 .card.card-1.up {
-  position: absolute;
+  /*position: absolute;*/
   height: 320px;
 }

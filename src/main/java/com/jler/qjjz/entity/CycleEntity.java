@@ -36,7 +36,9 @@ public class CycleEntity {
         CycleEntity that = (CycleEntity) o;
 
         if (id != that.id) return false;
-        return cycleName != null ? cycleName.equals(that.cycleName) : that.cycleName == null;
+        if (cycleName != null ? !cycleName.equals(that.cycleName) : that.cycleName != null) return false;
+
+        return true;
     }
 
     @Override

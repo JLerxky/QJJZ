@@ -6,9 +6,9 @@ import javax.persistence.*;
 @Table(name = "message_task")
 public class MessageTaskEntity {
     private int id;
-    private Integer uId;
-    private String note;
     private Integer cycleId;
+    private String note;
+    private Integer uId;
 
     @Id
     @Column(name = "id")
@@ -21,13 +21,13 @@ public class MessageTaskEntity {
     }
 
     @Basic
-    @Column(name = "u_id")
-    public Integer getuId() {
-        return uId;
+    @Column(name = "cycle_id")
+    public Integer getCycleId() {
+        return cycleId;
     }
 
-    public void setuId(Integer uId) {
-        this.uId = uId;
+    public void setCycleId(Integer cycleId) {
+        this.cycleId = cycleId;
     }
 
     @Basic
@@ -41,13 +41,13 @@ public class MessageTaskEntity {
     }
 
     @Basic
-    @Column(name = "cycle_id")
-    public Integer getCycleId() {
-        return cycleId;
+    @Column(name = "u_id")
+    public Integer getuId() {
+        return uId;
     }
 
-    public void setCycleId(Integer cycleId) {
-        this.cycleId = cycleId;
+    public void setuId(Integer uId) {
+        this.uId = uId;
     }
 
     @Override
@@ -58,17 +58,19 @@ public class MessageTaskEntity {
         MessageTaskEntity that = (MessageTaskEntity) o;
 
         if (id != that.id) return false;
-        if (uId != null ? !uId.equals(that.uId) : that.uId != null) return false;
+        if (cycleId != null ? !cycleId.equals(that.cycleId) : that.cycleId != null) return false;
         if (note != null ? !note.equals(that.note) : that.note != null) return false;
-        return cycleId != null ? cycleId.equals(that.cycleId) : that.cycleId == null;
+        if (uId != null ? !uId.equals(that.uId) : that.uId != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (uId != null ? uId.hashCode() : 0);
-        result = 31 * result + (note != null ? note.hashCode() : 0);
         result = 31 * result + (cycleId != null ? cycleId.hashCode() : 0);
+        result = 31 * result + (note != null ? note.hashCode() : 0);
+        result = 31 * result + (uId != null ? uId.hashCode() : 0);
         return result;
     }
 }

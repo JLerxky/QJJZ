@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,12 +23,12 @@ public class UserCtrl {
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String login(Model model, HttpSession session) {
-        if (session.getAttribute("uid") == null) {
+        if (session.getAttribute("uAcct") == null) {
             model.addAttribute("UsersEntity", new UsersEntity());
             return "login/login-1";
         } else {
-            logger.info("------" + session.getAttribute("uid") + "已登录,返回之前页------");
-            model.addAttribute("uid", session.getAttribute("uid"));
+            logger.info("------" + session.getAttribute("uAcct") + "已登录,返回之前页------");
+            model.addAttribute("uAcct", session.getAttribute("uAcct"));
             return "menu/menu-1";
         }
     }
@@ -39,8 +38,8 @@ public class UserCtrl {
         boolean r = userService.checkPwd(usersEntity);
         model.addAttribute("Result", r);
         if (r) {
-            model.addAttribute("uid", usersEntity.getuId());
-            session.setAttribute("uid", usersEntity.getuId());
+            model.addAttribute("uAcct", usersEntity.getuAcct());
+            session.setAttribute("uAcct", usersEntity.getuAcct());
             return "redirect:/";
         }else{
             model.addAttribute("result", "用户名或密码错误");
@@ -51,10 +50,10 @@ public class UserCtrl {
 
     @RequestMapping(value = "joinIn", method = RequestMethod.POST)
     public String joinIn(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session) {
-        UsersEntity u = userService.save(usersEntity);
+        UsersEntity u = userService.joinIn(usersEntity);
         if(u != null){
-            model.addAttribute("uid", usersEntity.getuId());
-            session.setAttribute("uid", usersEntity.getuId());
+            model.addAttribute("uAcct", usersEntity.getuAcct());
+            session.setAttribute("uAcct", usersEntity.getuAcct());
             return "redirect:/";
         }else{
             model.addAttribute("result", "注册失败");
@@ -65,10 +64,10 @@ public class UserCtrl {
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(HttpSession session, Model model) {
-        String uid = session.getAttribute("uid").toString();
+        String uAcct = session.getAttribute("uAcct").toString();
         session.invalidate();
-        logger.info("------" + uid + "已退出,返回登录页------");
-        model.addAttribute("uid", null);
+        logger.info("------" + uAcct + "已退出,返回登录页------");
+        model.addAttribute("uAcct", null);
         model.addAttribute("UsersEntity", new UsersEntity());
         return "login/login-1";
     }

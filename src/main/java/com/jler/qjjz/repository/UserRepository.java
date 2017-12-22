@@ -18,7 +18,7 @@ public interface UserRepository extends CrudRepository<UsersEntity, Integer> {
 
     UsersEntity findByUName(String uName);
 
-    UsersEntity findByUId(String uId);
+    UsersEntity findByuAcct(String uAcct);
 
     @Override
     UsersEntity save(UsersEntity u);
@@ -28,5 +28,8 @@ public interface UserRepository extends CrudRepository<UsersEntity, Integer> {
 
     @Query("select t from UsersEntity t where t.uName=:uName")
     UsersEntity findUserByName(@Param("uName") String uName);
+
+    @Query("select t.id from UsersEntity t where t.uAcct=:uAcct")
+    Integer getuIdByuAcct(@Param("uAcct") String uAcct);
 
 }

@@ -12,7 +12,7 @@ public class UserService {
     public UserRepository userRepository;
 
     public boolean checkPwd(UsersEntity usersEntity) {
-        UsersEntity u = userRepository.findByUId(usersEntity.getuId());
+        UsersEntity u = userRepository.findByuAcct(usersEntity.getuAcct());
         if (u == null) {
             return false;
         }
@@ -23,7 +23,7 @@ public class UserService {
         }
     }
 
-    public UsersEntity save(UsersEntity u) {
+    public UsersEntity joinIn(UsersEntity u) {
         return userRepository.save(u);
     }
 
@@ -31,7 +31,9 @@ public class UserService {
         return userRepository.findOne(id);
     }
 
-    public UsersEntity findByUId(String uid) {
-        return userRepository.findByUId(uid);
+    public UsersEntity findByuAcct(String uAcct) {
+        return userRepository.findByuAcct(uAcct);
     }
+
+    public Integer getuIdByuAcct(String uAcct) { return userRepository.getuIdByuAcct(uAcct);  }
 }

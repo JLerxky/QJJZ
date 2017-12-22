@@ -7,61 +7,20 @@ import java.util.Arrays;
 @Table(name = "users")
 public class UsersEntity {
     private int id;
-    private String uId;
-    private String uName;
-    private String uPwd;
     private byte[] faceImg;
     private Integer signInDay;
-
-    public UsersEntity() {
-
-    }
-
-    public UsersEntity(String uid, String upwd) {
-        this.uId = uid;
-        this.uPwd = upwd;
-    }
+    private String uAcct;
+    private String uName;
+    private String uPwd;
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="Users_id_seq")
-    @SequenceGenerator(name = "Users_id_seq",sequenceName="users_id_seq",initialValue=1000,allocationSize=1)
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Basic
-    @Column(name = "u_id")
-    public String getuId() {
-        return uId;
-    }
-
-    public void setuId(String uId) {
-        this.uId = uId;
-    }
-
-    @Basic
-    @Column(name = "u_name")
-    public String getuName() {
-        return uName;
-    }
-
-    public void setuName(String uName) {
-        this.uName = uName;
-    }
-
-    @Basic
-    @Column(name = "u_pwd")
-    public String getuPwd() {
-        return uPwd;
-    }
-
-    public void setuPwd(String uPwd) {
-        this.uPwd = uPwd;
     }
 
     @Basic
@@ -84,6 +43,36 @@ public class UsersEntity {
         this.signInDay = signInDay;
     }
 
+    @Basic
+    @Column(name = "u_acct")
+    public String getuAcct() {
+        return uAcct;
+    }
+
+    public void setuAcct(String uAcct) {
+        this.uAcct = uAcct;
+    }
+
+    @Basic
+    @Column(name = "u_name")
+    public String getuName() {
+        return uName;
+    }
+
+    public void setuName(String uName) {
+        this.uName = uName;
+    }
+
+    @Basic
+    @Column(name = "u_pwd")
+    public String getuPwd() {
+        return uPwd;
+    }
+
+    public void setuPwd(String uPwd) {
+        this.uPwd = uPwd;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,21 +81,23 @@ public class UsersEntity {
         UsersEntity that = (UsersEntity) o;
 
         if (id != that.id) return false;
-        if (uId != null ? !uId.equals(that.uId) : that.uId != null) return false;
+        if (!Arrays.equals(faceImg, that.faceImg)) return false;
+        if (signInDay != null ? !signInDay.equals(that.signInDay) : that.signInDay != null) return false;
+        if (uAcct != null ? !uAcct.equals(that.uAcct) : that.uAcct != null) return false;
         if (uName != null ? !uName.equals(that.uName) : that.uName != null) return false;
         if (uPwd != null ? !uPwd.equals(that.uPwd) : that.uPwd != null) return false;
-        if (!Arrays.equals(faceImg, that.faceImg)) return false;
-        return signInDay != null ? signInDay.equals(that.signInDay) : that.signInDay == null;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (uId != null ? uId.hashCode() : 0);
-        result = 31 * result + (uName != null ? uName.hashCode() : 0);
-        result = 31 * result + (uPwd != null ? uPwd.hashCode() : 0);
         result = 31 * result + Arrays.hashCode(faceImg);
         result = 31 * result + (signInDay != null ? signInDay.hashCode() : 0);
+        result = 31 * result + (uAcct != null ? uAcct.hashCode() : 0);
+        result = 31 * result + (uName != null ? uName.hashCode() : 0);
+        result = 31 * result + (uPwd != null ? uPwd.hashCode() : 0);
         return result;
     }
 }
