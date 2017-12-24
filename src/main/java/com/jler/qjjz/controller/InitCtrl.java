@@ -37,6 +37,7 @@ public class InitCtrl {
 
     public void init(String uAcct,Model model){
         UsersEntity u = userService.findByuAcct(uAcct);
+        model.addAttribute("user",u);
         model.addAttribute("accounts",accountService.findAllByuId(u.getId()));
     }
 
