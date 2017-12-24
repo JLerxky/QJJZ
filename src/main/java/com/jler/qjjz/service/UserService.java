@@ -35,5 +35,5 @@ public class UserService {
         return userRepository.findByuAcct(uAcct);
     }
 
-    public Integer getuIdByuAcct(String uAcct) { return userRepository.getuIdByuAcct(uAcct);  }
+//    public Integer getuIdByuAcct(String uAcct) { return userRepository.getuIdByuAcct(uAcct);  }
 }

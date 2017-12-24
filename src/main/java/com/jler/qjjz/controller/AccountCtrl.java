@@ -2,6 +2,7 @@ package com.jler.qjjz.controller;
 
 
 import com.jler.qjjz.entity.AccountEntity;
+import com.jler.qjjz.entity.UsersEntity;
 import com.jler.qjjz.service.AccountService;
 import com.jler.qjjz.service.UserService;
 import org.slf4j.Logger;
@@ -28,10 +29,10 @@ public class AccountCtrl {
     @RequestMapping(value = "addAccount", method = RequestMethod.POST)
     public void addAccount(@ModelAttribute AccountEntity accountEntity, HttpSession session, Model model) {
         String uAcct = session.getAttribute("uAcct").toString();
-        Integer uid = userService.getuIdByuAcct(uAcct);
-        accountEntity.setuId(uid);
+        UsersEntity u = userService.findByuAcct(uAcct);
+        accountEntity.setuId(u.getId());
         accountService.add(accountEntity);
-        modelUpdate(model,uid);
+        modelUpdate(model,u.getId());
     }
 
     public void modelUpdate(Model model,Integer uid){

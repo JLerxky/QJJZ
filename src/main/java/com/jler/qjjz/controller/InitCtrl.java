@@ -1,5 +1,6 @@
 package com.jler.qjjz.controller;
 
+import com.jler.qjjz.entity.UsersEntity;
 import com.jler.qjjz.service.AccountService;
 import com.jler.qjjz.service.UserService;
 import org.slf4j.Logger;
@@ -35,8 +36,8 @@ public class InitCtrl {
     }
 
     public void init(String uAcct,Model model){
-        Integer uid = userService.getuIdByuAcct(uAcct);
-        model.addAttribute("accounts",accountService.findAllByuId(uid));
+        UsersEntity u = userService.findByuAcct(uAcct);
+        model.addAttribute("accounts",accountService.findAllByuId(u.getId()));
     }
 
 }
