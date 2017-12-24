@@ -47,3 +47,12 @@ a.toggle.addAcct{
     background: darkseagreen;
     margin: 0;
 }
+
+p.name {
+    font-size: 16px;
+    position: absolute;
+    right: 58px;
+    top: -5px;
+    color: #FFFFFF;
+    text-align: right;
+}
