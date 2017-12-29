@@ -7,6 +7,9 @@ server:
     timeout: 600
 
 spring:
+  mvc:
+    favicon:
+      enabled: false
   datasource:
 #  mssql数据库
 #    url: jdbc:sqlserver://localhost;DatebaseName=QJJZ
