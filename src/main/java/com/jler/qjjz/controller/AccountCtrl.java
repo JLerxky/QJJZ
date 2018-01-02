@@ -27,12 +27,13 @@ public class AccountCtrl {
     private UserService userService;
 
     @RequestMapping(value = "addAccount", method = RequestMethod.POST)
-    public void addAccount(@ModelAttribute AccountEntity accountEntity, HttpSession session, Model model) {
+    public String addAccount(@ModelAttribute AccountEntity accountEntity, HttpSession session, Model model) {
         String uAcct = session.getAttribute("uAcct").toString();
         UsersEntity u = userService.findByuAcct(uAcct);
         accountEntity.setuId(u.getId());
         accountService.add(accountEntity);
         modelUpdate(model,u.getId());
+        return "redirect:/";
     }
 
     public void modelUpdate(Model model,Integer uid){

@@ -1,5 +1,6 @@
 package com.jler.qjjz.controller;
 
+import com.jler.qjjz.entity.AccountEntity;
 import com.jler.qjjz.entity.UsersEntity;
 import com.jler.qjjz.service.AccountService;
 import com.jler.qjjz.service.UserService;
@@ -39,6 +40,7 @@ public class InitCtrl {
         UsersEntity u = userService.findByuAcct(uAcct);
         model.addAttribute("user",u);
         model.addAttribute("accounts",accountService.findAllByuId(u.getId()));
+        model.addAttribute("AccountEntity", new AccountEntity());
     }
 
 }

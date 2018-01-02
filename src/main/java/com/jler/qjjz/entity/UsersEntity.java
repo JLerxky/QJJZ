@@ -15,7 +15,7 @@ public class UsersEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="ID_SEQ")
-    @SequenceGenerator(name = "ID_SEQ",sequenceName="SEQ_USERS_ID",initialValue=0,allocationSize=1)
+    @SequenceGenerator(name = "ID_SEQ",sequenceName="SEQ_users_ID",initialValue=0,allocationSize=1)
     @Column(name = "id")
     public int getId() {
         return id;

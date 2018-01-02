@@ -17,6 +17,8 @@ public class AccountEntity {
     private Integer uId;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="ID_SEQ")
+    @SequenceGenerator(name = "ID_SEQ",sequenceName="SEQ_account_ID",initialValue=0,allocationSize=1)
     @Column(name = "id")
     public int getId() {
         return id;
