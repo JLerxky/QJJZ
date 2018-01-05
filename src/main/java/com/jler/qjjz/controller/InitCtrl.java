@@ -36,6 +36,7 @@ public class InitCtrl {
         return "index";
     }
 
+    @RequestMapping(value = "/init")
     public void init(String uAcct,Model model){
         UsersEntity u = userService.findByuAcct(uAcct);
         model.addAttribute("user",u);

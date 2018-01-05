@@ -33,7 +33,7 @@ public class AccountCtrl {
         accountEntity.setuId(u.getId());
         accountService.add(accountEntity);
         modelUpdate(model,u.getId());
-        return "redirect:/";
+        return "accounts";
     }
 
     public void modelUpdate(Model model,Integer uid){

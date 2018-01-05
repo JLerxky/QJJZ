@@ -10,6 +10,8 @@ spring:
   mvc:
     favicon:
       enabled: false
+  thymeleaf:
+    cache: false
   datasource:
 #  mssql数据库
 #    url: jdbc:sqlserver://localhost;DatebaseName=QJJZ
