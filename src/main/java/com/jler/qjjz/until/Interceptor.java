@@ -16,16 +16,16 @@ public class Interceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         // TODO Auto-generated method stub
-        logger.info("-------访问控制-------");
+//        logger.info("-------访问控制-------");
         //获取session
         HttpSession session = request.getSession(true);
         //判断用户ID是否存在，不存在就跳转到登录界面
         if (session.getAttribute("uAcct") == null) {
-            logger.info("-------用户未登录-------");
+            logger.info("------未登录用户访问");
             response.sendRedirect(request.getContextPath() + "/login");
             return false;
         } else {
-            logger.info("------用户:" + session.getAttribute("uAcct") + "登录------");
+            logger.info("------用户:" + session.getAttribute("uAcct") + "登录");
             session.setAttribute("uAcct", session.getAttribute("uAcct"));
             return true;
         }

@@ -5,162 +5,192 @@
     <title>轻简记账</title>
     <link rel="icon" type="image/x-icon" th:href="@{img/favicon.ico}"></link>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="css/index.css"></link>
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
 </head>
 <body>
+    <div class="content">
 
-<ul id="myTab" class="nav nav-tabs">
-    <li><a href="#">轻简记账</a></li>
-    <li class="active"><a href="#detail" data-toggle="tab">记账</a></li>
-    <li><a href="#report" data-toggle="tab">报表</a></li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            资金 <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="#accounts" data-toggle="tab">账户列表</a></li>
-            <li><a data-toggle="modal" href="#addAccoModal">添加账户</a></li>
-            <li class="divider"></li>
-            <li><a data-toggle="modal" href="#TransferModal">转账</a></li>
-            <li><a href="#">周期转账</a></li>
-        </ul>
-    </li>
-</ul>
-
-<div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade in active" id="detail">
-        <div class="panel panel-success">
-            <div class="panel-heading">面板标题</div>
-            <table class="table">
-                <th>产品</th><th>价格 </th>
-                <tr><td>产品 A</td><td>200</td></tr>
-                <tr><td>产品 B</td><td>400</td></tr>
-            </table>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="report">
-        <div class="panel panel-info">
-            <div class="panel-heading">面板标题</div>
-            <table class="table">
-                <th>产品</th><th>价格 </th>
-                <tr><td>产品 A</td><td>200</td></tr>
-                <tr><td>产品 B</td><td>400</td></tr>
-            </table>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="accounts">
-        <div class="panel panel-warning">
-            <div class="panel-heading">账户列表</div>
-            <table class="table">
-                <th>账户简称</th><th>金额</th>
-                <tr  th:each="acct:${accounts}">
-                    <td th:text="${acct.accountName}"></td>
-                    <td th:text="${acct.balance}"></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</div>
-
-<!-- （TransferModal） -->
-<div class="modal fade" id="TransferModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    转账
-                </h4>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#example-navbar-collapse">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">轻简记账</a>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#detail" data-toggle="tab">记账</a></li>
+                        <li><a href="#report" data-toggle="tab">报表</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                资金 <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#accounts" data-toggle="tab">账户列表</a></li>
+                                <li><a data-toggle="modal" href="#addAccoModal">添加账户</a></li>
+                                <li class="divider"></li>
+                                <li><a data-toggle="modal" href="#TransferModal">转账</a></li>
+                                <li><a href="#">周期转账</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:text="${user.uName}">
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="tab">个人中心</a></li>
+                                <li><a href="#" data-toggle="modal">账户设置</a></li>
+                                <li class="divider"></li>
+                                <li><a th:href="@{logout}">退出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <form role="form">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">转出账户</label>
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                        <label for="name">转入账户</label>
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                        <label for="name">金额</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input type="text" class="form-control" placeholder="0.00"></input>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="button" class="btn btn-success">
-                        转账
-                    </button>
-                </div>
-            </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
-<!-- （addAccoModal） -->
-<div class="modal fade" id="addAccoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    添加资金账户
-                </h4>
-            </div>
-            <form role="form" id="addAcco" th:action="@{addAccount}" th:object="${AccountEntity}" method="post">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">账户简称</label>
-                        <input type="text" class="form-control" th:field="*{accountName}"/>
-                        <label for="name">当前金额</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input type="text" class="form-control" placeholder="0.00" th:field="*{balance}"/>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> 信用卡</input>
-                            </label>
-                        </div>
-                        <div class="xyk">
-                            <label for="name">额度</label>
-                            <input class="form-control" type="text"></input>
-                            <label for="name">账单日</label>
-                            <input class="form-control" type="text"></input>
-                            <label for="name">还款日</label>
-                            <input class="form-control" type="text"></input>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="return addAcco()">
-                        添加
-                    </button>
-                </div>
-            </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
+        </nav>
 
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="detail">
+                <div class="panel panel-success">
+                    <div class="panel-heading">面板标题</div>
+                    <table class="table">
+                        <th>产品</th><th>价格 </th>
+                        <tr><td>产品 A</td><td>200</td></tr>
+                        <tr><td>产品 B</td><td>400</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="report">
+                <div class="panel panel-info">
+                    <div class="panel-heading">面板标题</div>
+                    <table class="table">
+                        <th>产品</th><th>价格 </th>
+                        <tr><td>产品 A</td><td>200</td></tr>
+                        <tr><td>产品 B</td><td>400</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="accounts">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">账户列表</div>
+                    <table class="table">
+                        <th>账户简称</th><th>金额</th>
+                        <tr  th:each="acct:${accounts}">
+                            <td th:text="${acct.accountName}"></td>
+                            <td th:text="${acct.balance}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- （TransferModal） -->
+        <div class="modal fade" id="TransferModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            转账
+                        </h4>
+                    </div>
+                    <form role="form">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name">转出账户</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                                <label for="name">转入账户</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                                <label for="name">金额</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control" placeholder="0.00"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-success">
+                                转账
+                            </button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <!-- （addAccoModal） -->
+        <div class="modal fade" id="addAccoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            添加资金账户
+                        </h4>
+                    </div>
+                    <form role="form" id="addAcco" th:action="@{addAccount}" th:object="${AccountEntity}" method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name">账户简称</label>
+                                <input type="text" class="form-control" th:field="*{accountName}"/>
+                                <label for="name">当前金额</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control" placeholder="0.00" th:field="*{balance}"/>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> 信用卡</input>
+                                    </label>
+                                </div>
+                                <div class="xyk">
+                                    <label for="name">额度</label>
+                                    <input class="form-control" type="text"></input>
+                                    <label for="name">账单日</label>
+                                    <input class="form-control" type="text"></input>
+                                    <label for="name">还款日</label>
+                                    <input class="form-control" type="text"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal" onclick="return addAcco()">
+                                添加
+                            </button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
 </body>
 </html>
