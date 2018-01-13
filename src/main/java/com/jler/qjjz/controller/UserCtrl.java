@@ -46,8 +46,7 @@ public class UserCtrl {
             model.addAttribute("uAcct", usersEntity.getuAcct());
             session.setAttribute("uAcct", usersEntity.getuAcct());
             logger.info("------用户:" + session.getAttribute("uAcct")
-                    + " 登录,ip:" + ipMac.getValue("ip")
-                    + ",MAC:" + ipMac.getValue("mac"));
+                    + " 登录,ip:" + ipMac.getValue("ip"));
             return "redirect:/";
         } else {
             model.addAttribute("result", "用户名或密码错误");

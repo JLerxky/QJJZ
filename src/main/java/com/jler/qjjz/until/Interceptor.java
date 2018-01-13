@@ -24,7 +24,7 @@ public class Interceptor implements HandlerInterceptor {
         Attributes ipMac = UserInfo.iPMac(request);
         //判断用户ID是否存在，不存在就跳转到登录界面
         if (session.getAttribute("uAcct") == null) {
-            logger.info("------未登录用户访问,ip:" + ipMac.getValue("ip") + ",MAC:" + ipMac.getValue("mac"));
+            logger.info("------未登录用户访问,ip:" + ipMac.getValue("ip"));
             response.sendRedirect(request.getContextPath() + "/login");
             return false;
         } else {
