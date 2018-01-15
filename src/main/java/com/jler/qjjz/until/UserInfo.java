@@ -45,11 +45,11 @@ public class UserInfo {
     }
 
     public static Attributes iPMac(HttpServletRequest request) {
-        String ip = getUserIP(request);
-        String mac = getUserMac(ip);
+//        String ip = getUserIP(request);
+//        String mac = getUserMac(ip);
         Attributes ipMac = new Attributes();
-        ipMac.putValue("ip",ip);
-        ipMac.putValue("mac",mac);
+        ipMac.putValue("ip","ip");
+        ipMac.putValue("mac","mac");
         return ipMac;
     }
 }

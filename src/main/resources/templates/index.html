@@ -6,12 +6,13 @@
     <link rel="icon" type="image/x-icon" th:href="@{img/favicon.ico}"></link>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="css/index.css"></link>
+    <link rel="stylesheet" href="css/card.css"></link>
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
 </head>
 <body>
-    <div class="content">
+    <div class="container">
 
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
@@ -90,6 +91,16 @@
                             <td th:text="${acct.balance}"></td>
                         </tr>
                     </table>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2" th:each="acct:${accounts}">
+                        <div class="card card-1 accs">
+                            <div class="panel panel-warning">
+                                <div class="panel-heading" th:text="${acct.accountName}"></div>
+                                <div class="panel-body" th:text="${acct.balance}"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

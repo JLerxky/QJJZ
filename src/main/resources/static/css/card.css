@@ -1,7 +1,3 @@
-body{
-  margin: 0 5%;
-}
-
 .card {
   background: #fff;
   border-radius: 20px;
@@ -13,31 +9,9 @@ body{
   min-width: 364px;
 }
 
-.content{
-  display: table;
-  /*border-radius: 40px;*/
-  width: 100%;
-  background: antiquewhite;
-  margin: 40px 0;
-  padding: 0 0 40px 0;
-  text-align: center;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.header{
-  background: indianred;
-  width: 100%;
-  height: 48px;
-  margin: 0;
-  border-radius: 100px;
-}
-
 .card-1 {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  width: 47%;
-  margin: 20px 10px 0 10px;
-  min-width: 350px;
 }
 
 .card-1:hover {
@@ -60,16 +34,17 @@ body{
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
-.card.card-1.account {
-  width: 96%;
-  height: 150px;
-}
-
 .card.card-1.flow {
   height: 640px;
 }
 
 .card.card-1.up {
-  /*position: absolute;*/
   height: 320px;
+}
+
+.card.card-1.accs {
+  min-width: 100%;
+  width: 45px;
+  height: 100%;
+  overflow: hidden;
 }
