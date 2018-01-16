@@ -1,20 +1,17 @@
-<div class="panel panel-warning">
-    <div class="panel-heading">账户列表</div>
-    <table class="table">
-        <th>账户简称</th><th>金额</th>
-        <tr  th:each="acct:${accounts}">
-            <td th:text="${acct.accountName}"></td>
-            <td th:text="${acct.balance}"></td>
-        </tr>
-    </table>
-</div>
 <div class="row">
-    <div class="col-lg-2" th:each="acct:${accounts}">
-        <div class="card card-1 accs">
-            <div class="panel panel-warning">
-                <div class="panel-heading" th:text="${acct.accountName}"></div>
-                <div class="panel-body" th:text="${acct.balance}"></div>
+    <div class="col-lg-8">
+        <div class="col-lg-3" th:each="acct:${accounts}">
+            <div class="card card-1 accs">
+                <div class="panel panel-warning">
+                    <div class="panel-heading" th:text="${acct.accountName}"></div>
+                    <div class="panel-body" th:text="${acct.balance}"></div>
+                </div>
             </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card card-1 money">
+
         </div>
     </div>
 </div>

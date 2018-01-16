@@ -32,7 +32,7 @@ public class UserCtrl {
         } else {
             logger.info("------" + session.getAttribute("uAcct") + "已登录,返回前页");
             model.addAttribute("uAcct", session.getAttribute("uAcct"));
-            return "menu/menu-1";
+            return "redirect:/";
         }
     }
 

@@ -48,3 +48,12 @@
   height: 100%;
   overflow: hidden;
 }
+
+.card.card-1.money {
+  width: 100%;
+  min-width: 0;
+  height: 373px;
+  text-align: center;
+  color: #e4606d;
+  padding: 20px;
+}
