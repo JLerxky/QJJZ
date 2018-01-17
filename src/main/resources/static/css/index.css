@@ -1,9 +1,9 @@
 .container {
     background-color: blanchedalmond;
-    margin-top: 10px;
-    padding: 20px;
+    /*margin-top: 10px;*/
+    padding-top: 20px;
     min-height: 768px;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
 }
 .modal-backdrop {
     background-color: rgba(0, 0, 0, 0);
