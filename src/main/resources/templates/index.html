@@ -115,8 +115,20 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="col-lg-3" th:each="acct:${accounts}">
-                            <div class="card card-1 accs">
-                                <div class="panel panel-warning">
+                            <div th:switch="${acct.color }" class="card card-1 accs">
+                                <div th:case="'Y'" class="panel panel-warning">
+                                    <div class="panel-heading" th:text="${acct.accountName}"></div>
+                                    <div class="panel-body" th:text="${acct.balance}"></div>
+                                </div>
+                                <div th:case="'G'" class="panel panel-success">
+                                    <div class="panel-heading" th:text="${acct.accountName}"></div>
+                                    <div class="panel-body" th:text="${acct.balance}"></div>
+                                </div>
+                                <div th:case="'R'" class="panel panel-danger">
+                                    <div class="panel-heading" th:text="${acct.accountName}"></div>
+                                    <div class="panel-body" th:text="${acct.balance}"></div>
+                                </div>
+                                <div th:case="'B'" class="panel panel-info">
                                     <div class="panel-heading" th:text="${acct.accountName}"></div>
                                     <div class="panel-body" th:text="${acct.balance}"></div>
                                 </div>
@@ -137,14 +149,14 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">
+                        <h4 class="modal-title">
                             转账
                         </h4>
                     </div>
                     <form role="form">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="name">转出账户</label>
+                                <label>转出账户</label>
                                 <select class="form-control">
                                     <option>1</option>
                                     <option>2</option>
@@ -152,7 +164,7 @@
                                     <option>4</option>
                                     <option>5</option>
                                 </select>
-                                <label for="name">转入账户</label>
+                                <label>转入账户</label>
                                 <select class="form-control">
                                     <option>1</option>
                                     <option>2</option>
@@ -160,7 +172,7 @@
                                     <option>4</option>
                                     <option>5</option>
                                 </select>
-                                <label for="name">金额</label>
+                                <label>金额</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">$</span>
                                     <input type="text" class="form-control" placeholder="0.00"></input>
@@ -186,16 +198,16 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">
+                        <h4 class="modal-title">
                             添加资金账户
                         </h4>
                     </div>
                     <form role="form" id="addAcco" th:action="@{addAccount}" th:object="${AccountEntity}" method="post">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="name">账户简称</label>
+                                <label>账户简称</label>
                                 <input type="text" class="form-control" th:field="*{accountName}"/>
-                                <label for="name">当前金额</label>
+                                <label>当前金额</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">$</span>
                                     <input type="text" class="form-control" placeholder="0.00" th:field="*{balance}"/>
@@ -206,11 +218,11 @@
                                     </label>
                                 </div>
                                 <div class="xyk">
-                                    <label for="name">额度</label>
+                                    <label>额度</label>
                                     <input class="form-control" type="text"></input>
-                                    <label for="name">账单日</label>
+                                    <label>账单日</label>
                                     <input class="form-control" type="text"></input>
-                                    <label for="name">还款日</label>
+                                    <label>还款日</label>
                                     <input class="form-control" type="text"></input>
                                 </div>
                             </div>

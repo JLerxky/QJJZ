@@ -31,7 +31,7 @@ public class UserCtrl {
             return "login/login-1";
         } else {
             logger.info("------" + session.getAttribute("uAcct") + "已登录,返回前页");
-            model.addAttribute("uAcct", session.getAttribute("uAcct"));
+//            model.addAttribute("uAcct", session.getAttribute("uAcct"));
             return "redirect:/";
         }
     }
@@ -43,7 +43,7 @@ public class UserCtrl {
         Attributes ipMac = UserInfo.iPMac(request);
         model.addAttribute("Result", r);
         if (r) {
-            model.addAttribute("uAcct", usersEntity.getuAcct());
+//            model.addAttribute("uAcct", usersEntity.getuAcct());
             session.setAttribute("uAcct", usersEntity.getuAcct());
             logger.info("------用户:" + session.getAttribute("uAcct")
                     + " 登录,ip:" + ipMac.getValue("ip"));

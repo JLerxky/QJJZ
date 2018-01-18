@@ -29,14 +29,13 @@ public class InitCtrl {
     @RequestMapping(value = "/")
     public String index(HttpSession session, Model model) {
         String uAcct = session.getAttribute("uAcct").toString();
-        model.addAttribute("uAcct", uAcct);
+//        model.addAttribute("uAcct", uAcct);
         if(uAcct != null){
             init(uAcct,model);
         }
         return "index";
     }
 
-    @RequestMapping(value = "/init")
     public void init(String uAcct,Model model){
         UsersEntity u = userService.findByuAcct(uAcct);
         model.addAttribute("user",u);
