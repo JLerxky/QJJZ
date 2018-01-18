@@ -28,7 +28,7 @@ public class UserCtrl {
     public String login(Model model, HttpSession session) {
         if (session.getAttribute("uAcct") == null) {
             model.addAttribute("UsersEntity", new UsersEntity());
-            return "login/login-1";
+            return "login";
         } else {
             logger.info("------" + session.getAttribute("uAcct") + "已登录,返回前页");
 //            model.addAttribute("uAcct", session.getAttribute("uAcct"));
@@ -51,7 +51,7 @@ public class UserCtrl {
         } else {
             model.addAttribute("result", "用户名或密码错误");
             model.addAttribute("UsersEntity", new UsersEntity());
-            return "login/login-1";
+            return "login";
         }
     }
 
@@ -65,7 +65,7 @@ public class UserCtrl {
         } else {
             model.addAttribute("result", "注册失败");
             model.addAttribute("UsersEntity", new UsersEntity());
-            return "login/login-1";
+            return "login";
         }
     }
 
@@ -76,6 +76,6 @@ public class UserCtrl {
         logger.info("------用户:" + uAcct + " 已退出,返回登录页");
         model.addAttribute("uAcct", null);
         model.addAttribute("UsersEntity", new UsersEntity());
-        return "login/login-1";
+        return "login";
     }
 }
