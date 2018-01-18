@@ -11,6 +11,13 @@ html,body {
     /*min-height: 768px;*/
     /*border-radius: 5px;*/
 }
+
+@media (width: 375px){
+    .container {
+        width: 100%;
+    }
+}
+
 .modal-backdrop {
     background-color: rgba(0, 0, 0, 0);
 }
@@ -39,10 +46,31 @@ html,body {
     /*width: 100%;*/
 }
 
+@media (max-width: 768px){
+    .footer {
+        width: 100%;
+    }
+}
+
+
 div#TabContent {
     /*margin: 0 1px;*/
     height: 100%;
     padding: 50px 0;
+}
+
+div#detail {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 15px 0;
+}
+
+div#report {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 15px 0;
 }
 
 div#accounts {

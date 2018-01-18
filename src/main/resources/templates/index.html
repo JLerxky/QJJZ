@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css"></link>
     <link rel="stylesheet" href="css/card.css"></link>
     <link rel="stylesheet" href="css/pieChart.css"></link>
+    <link rel="stylesheet" href="css/vertical-timeline.css"></link>
     <script src="lib/js/jquery.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
 </head>
@@ -63,14 +64,87 @@
 
         <div id="TabContent" class="tab-content">
             <div class="tab-pane fade in active" id="detail">
-                <div class="panel panel-success">
-                    <div class="panel-heading">面板标题</div>
-                    <table class="table">
-                        <th>产品</th><th>价格 </th>
-                        <tr><td>产品 A</td><td>200</td></tr>
-                        <tr><td>产品 B</td><td>400</td></tr>
-                    </table>
-                </div>
+                <section id="cd-timeline" class="cd-container">
+                    <div id="addDetailButtom" class="cd-timeline-img cd-picture">
+                        <img src="img/add.svg" style="width: 60px;height: 60px;margin-left: -30px;margin-top: -30px;"></img>
+                    </div>
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-picture">
+                            <img src="img/card.svg"></img>
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Title of section 1</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                            <a href="#0" class="cd-read-more">Read more</a>
+                            <span class="cd-date">Jan 14</span>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-movie">
+                            <img src="img/card.svg"></img>
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Title of section 2</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+                            <a href="#0" class="cd-read-more">Read more</a>
+                            <span class="cd-date">Jan 18</span>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-picture">
+                            <img src="img/card.svg"></img>
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Title of section 3</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+                            <a href="#0" class="cd-read-more">Read more</a>
+                            <span class="cd-date">Jan 24</span>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-location">
+                            <img src="img/card.svg"></img>
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Title of section 4</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                            <a href="#0" class="cd-read-more">Read more</a>
+                            <span class="cd-date">Feb 14</span>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-location">
+                            <img src="img/card.svg"></img>
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Title of section 5</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+                            <a href="#0" class="cd-read-more">Read more</a>
+                            <span class="cd-date">Feb 18</span>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+
+                    <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-movie">
+                            <img src="img/card.svg"></img>
+                        </div> <!-- cd-timeline-img -->
+
+                        <div class="cd-timeline-content">
+                            <h2>Final Section</h2>
+                            <p>This is the content of the last section</p>
+                            <span class="cd-date">Feb 26</span>
+                        </div> <!-- cd-timeline-content -->
+                    </div> <!-- cd-timeline-block -->
+                </section> <!-- cd-timeline -->
             </div>
             <div class="tab-pane fade" id="report">
                 <div class="panel panel-info">
@@ -243,6 +317,7 @@
 
     <script src="js/index.js"></script>
     <script src="js/pieChart.js"></script>
+    <script src="js/vertical-timeline.js"></script>
     <script>
         $(function () { $("[data-toggle='tooltip']").tooltip(); });
     </script>
