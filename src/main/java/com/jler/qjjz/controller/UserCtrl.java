@@ -8,9 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -77,5 +75,16 @@ public class UserCtrl {
         model.addAttribute("uAcct", null);
         model.addAttribute("UsersEntity", new UsersEntity());
         return "login";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "checkId", method = RequestMethod.POST)
+    public String checkUAcct(String uAcct) {
+        UsersEntity u = userService.findByuAcct(uAcct);
+        if (u != null) {
+            return "true";
+        } else {
+            return "false";
+        }
     }
 }

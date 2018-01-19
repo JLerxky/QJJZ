@@ -1,0 +1,36 @@
+<div class="tab-pane fade in active" id="loginForm">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="jumbotron">
+                <h1>Hello, world!</h1>
+                <p>
+                    This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div id="login-page" class="col-lg-12">
+                <div class="form">
+                    <h1 style="color: darkgoldenrod;">轻简记账</h1>
+                    <form class="register-form" th:action="@{joinIn}" th:object="${UsersEntity}" method="post">
+                        <input type="text" placeholder="用户名" th:field="*{uAcct}"/>
+                        <input type="password" placeholder="输入密码" th:field="*{uPwd}"/>
+                        <input type="password" placeholder="重新输入密码" />
+                        <button>加入</button>
+                        <p class="message">已经有账号? <a href="#">登录</a></p>
+                    </form>
+                    <form class="login-form" th:action="@{login}" th:object="${UsersEntity}" method="post">
+                        <input type="text" placeholder="用户名" th:field="*{uAcct}"/>
+                        <input type="password" placeholder="密码" th:field="*{uPwd}"/>
+                        <button>登录</button>
+                        <p class="result" th:text="${result}"></p>
+                        <p class="message">还没有账号? <a href="#">加入</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

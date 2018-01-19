@@ -33,7 +33,7 @@ public class AccountCtrl {
         accountEntity.setuId(u.getId());
         accountService.add(accountEntity);
         modelUpdate(model,u.getId());
-        return "accounts";
+        return "model/accounts";
     }
 
     public void modelUpdate(Model model,Integer uid){

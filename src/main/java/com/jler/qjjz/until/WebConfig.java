@@ -16,6 +16,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         addInterceptor.excludePathPatterns("/404");
         addInterceptor.excludePathPatterns("/login**");
         addInterceptor.excludePathPatterns("/joinIn");
+        addInterceptor.excludePathPatterns("/check**");
 
         // 拦截配置
         addInterceptor.addPathPatterns("/**");
