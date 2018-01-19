@@ -61,9 +61,9 @@
                                 </form>
                                 <form class="login-form" th:action="@{login}" th:object="${UsersEntity}" method="post">
                                     <input id="login-id" type="text" placeholder="用户名" th:field="*{uAcct}"/>
-                                    <p class="form-control-static"></p>
+                                    <div id="login-id-msg" class="alert alert-warning"></div>
                                     <input id="login-pwd" type="password" placeholder="密码" th:field="*{uPwd}"/>
-                                    <p class="form-control-static"></p>
+                                    <div id="login-pwd-msg" class="alert alert-warning"></div>
                                     <button>登录</button>
                                     <p class="result" th:text="${result}"></p>
                                     <p class="message">还没有账号? <a href="#">加入</a></p>
