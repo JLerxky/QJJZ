@@ -10,19 +10,20 @@ function checkId(uAcct) {
                 if (data === "false"){
                     $('#login-id-msg').text("该用户未注册").show();
                     $('#login-id').css("margin","0");
-                    return "false";
+                    return false;
                 } else {
                     $('#login-id-msg').text("").hide();
                     $('#login-id').css("margin","0 0 32px");
-                    return "true";
+                    return true;
                 }
             });
         } else {
             $('#login-id-msg').text("用户名不符合规范").show();
             $('#login-id').css("margin","0");
-            return "false";
+            return false;
         }
     }
+    return false;
 }
 
 $('.message a').click(function () {
@@ -37,7 +38,8 @@ $('#login-id').blur(function () {
 $('.login-form button').click(function () {
     var uAcct = $('#login-id').val();
     var pwd = $('#login-pwd').val();
-    if(checkId(uAcct) === 'true'){
+    var r = checkId(uAcct);
+    if(r){
         if(pwd != ""){
             $('.login-form button').submit();
         }else {
