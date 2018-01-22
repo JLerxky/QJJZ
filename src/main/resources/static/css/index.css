@@ -27,7 +27,7 @@ html,body {
 }
 
 .header {
-    background-color: #f8f8f8;;
+    background-color: #f8f8f8;
     /*margin-bottom: 0;*/
     height: 50px;
 }
@@ -37,7 +37,7 @@ html,body {
     background-color: #f8f8f8;
     border-top: 1px solid #E7E7E7;
     text-align:center;
-    padding:20px;
+    padding:14px;
     /*margin-top: 20px;*/
     position: absolute;
     /*left: 0;*/
@@ -52,6 +52,9 @@ html,body {
     }
 }
 
+div#example-navbar-collapse {
+    background-color: #f8f8f8;
+}
 
 div#TabContent {
     /*margin: 0 1px;*/

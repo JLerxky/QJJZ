@@ -54,11 +54,15 @@ public class UserCtrl {
     }
 
     @RequestMapping(value = "joinIn", method = RequestMethod.POST)
-    public String joinIn(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session) {
+    public String joinIn(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session, HttpServletRequest request) {
         UsersEntity u = userService.joinIn(usersEntity);
+        //获取ipMac
+        Attributes ipMac = UserInfo.iPMac(request);
         if (u != null) {
             model.addAttribute("uAcct", usersEntity.getuAcct());
             session.setAttribute("uAcct", usersEntity.getuAcct());
+            logger.info("------新用户:" + session.getAttribute("uAcct")
+                    + " 加入,ip:" + ipMac.getValue("ip"));
             return "redirect:/";
         } else {
             model.addAttribute("result", "注册失败");

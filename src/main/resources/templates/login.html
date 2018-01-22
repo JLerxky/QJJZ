@@ -54,8 +54,11 @@
                                 <h1 style="color: darkgoldenrod;">轻简记账</h1>
                                 <form class="register-form" th:action="@{joinIn}" th:object="${UsersEntity}" method="post">
                                     <input id="sign-id" type="text" placeholder="用户名" th:field="*{uAcct}"/>
+                                    <div id="sign-id-msg" class="alert alert-warning"></div>
                                     <input id="sign-pwd" type="password" placeholder="输入密码" th:field="*{uPwd}"/>
+                                    <div id="sign-pwd-msg" class="alert alert-warning"></div>
                                     <input id="sign-pwd2" type="password" placeholder="重新输入密码" />
+                                    <div id="sign-pwd2-msg" class="alert alert-warning"></div>
                                     <button>加入</button>
                                     <p class="message">已经有账号? <a href="#">登录</a></p>
                                 </form>

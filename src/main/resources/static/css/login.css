@@ -32,7 +32,7 @@ html,body {
     background-color: #f8f8f8;
     border-top: 1px solid #E7E7E7;
     text-align:center;
-    padding:20px;
+    padding:14px;
     position: absolute;
     bottom: 0;
     height: 50px;
@@ -42,6 +42,10 @@ html,body {
     .footer {
         width: 100%;
     }
+}
+
+div#example-navbar-collapse {
+    background-color: #f8f8f8;
 }
 
 div#TabContent {
@@ -146,6 +150,24 @@ div#login-id-msg {
 }
 
 div#login-pwd-msg {
+    margin: 5px 0;
+    padding: 0;
+    display: none;
+}
+
+div#sign-id-msg {
+    margin: 5px 0;
+    padding: 0;
+    display: none;
+}
+
+div#sign-pwd-msg {
+    margin: 5px 0;
+    padding: 0;
+    display: none;
+}
+
+div#sign-pwd2-msg {
     margin: 5px 0;
     padding: 0;
     display: none;
