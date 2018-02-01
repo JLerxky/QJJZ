@@ -36,6 +36,11 @@ public class InitCtrl {
         return "index";
     }
 
+    @RequestMapping(value = "/index_vue")
+    public String index_vue() {
+        return "index_vue";
+    }
+
     public void init(String uAcct,Model model){
         UsersEntity u = userService.findByuAcct(uAcct);
         model.addAttribute("user",u);
