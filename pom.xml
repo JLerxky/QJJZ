@@ -60,7 +60,6 @@
         <!--</dependency>-->
     </dependencies>
 
-
     <build>
         <finalName>轻简记账</finalName>
         <plugins>
