@@ -3,18 +3,19 @@ package com.jler.qjjz.controller;
 import com.jler.qjjz.entity.UsersEntity;
 import com.jler.qjjz.service.UserService;
 import com.jler.qjjz.until.UserInfo;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 import java.util.jar.Attributes;
 
-@Controller
+@RestController
 @RequestMapping
 public class UserCtrl {
     Logger logger = LoggerFactory.getLogger(UserCtrl.class);
@@ -34,8 +35,20 @@ public class UserCtrl {
         }
     }
 
+    @ApiOperation("获取用户信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="header",name="username",dataType="String",
+                    required=true,value="用户的姓名",defaultValue="zhaojigang"),
+            @ApiImplicitParam(paramType="query",name="password",dataType="String",
+                    required=true,value="用户的密码",defaultValue="wangna")
+    })
+    @ApiResponses({
+            @ApiResponse(code=400,message="请求参数没填好"),
+            @ApiResponse(code=404,message="请求路径没有或页面跳转路径不对")
+    })
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String loginPost(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session, HttpServletRequest request) {
+    public String loginPost(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session,
+                            HttpServletRequest request) {
         boolean r = userService.checkPwd(usersEntity);
         //获取ipMac
         Attributes ipMac = UserInfo.iPMac(request);
@@ -54,7 +67,8 @@ public class UserCtrl {
     }
 
     @RequestMapping(value = "joinIn", method = RequestMethod.POST)
-    public String joinIn(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session, HttpServletRequest request) {
+    public String joinIn(@ModelAttribute UsersEntity usersEntity, Model model, HttpSession session,
+                         HttpServletRequest request) {
         UsersEntity u = userService.joinIn(usersEntity);
         //获取ipMac
         Attributes ipMac = UserInfo.iPMac(request);
@@ -81,10 +95,9 @@ public class UserCtrl {
         return "login";
     }
 
-    @ResponseBody
     @RequestMapping(value = "checkId", method = RequestMethod.POST)
-    public String checkUAcct(String uAcct) {
-        UsersEntity u = userService.findByuAcct(uAcct);
+    public String checkUAcct(@RequestBody Map<String,Object> params) {
+        UsersEntity u = userService.findByuAcct(params.get("uAcct").toString());
         if (u != null) {
             return "true";
         } else {
